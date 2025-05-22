@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 Day 1</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #5cb1a6, #6dc1b5);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      color: #34495e;
+      border-bottom: 2px solid #4caf91;
+      padding-bottom: 4px;
+    }
+
+    .question {
+      margin-bottom: 25px;
+    }
+
+    .english {
+      font-size: 16px;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .translation {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"] {
+      width: 140px;
+      padding: 6px;
+      margin: 0 3px;
+      font-size: 15px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .check-btn {
+      margin-top: 6px;
+      background: #4caf91;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .feedback {
+      margin-top: 6px;
+      font-weight: bold;
+    }
+
+    .example {
+      margin-top: 4px;
+      font-style: italic;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .correct { color: green; }
+    .incorrect { color: red; }
+
+    @media (max-width: 600px) {
+      input[type="text"] {
+        width: 100px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Task 2 Day 1</h2>
+
+    <div class="section-title">一. 句子填空</div>
+
+    <!-- 句子 1 -->
+    <div class="question">
+      <div class="english">
+        1. Education gives people <input type="text" id="s1_1"> and <input type="text" id="s1_2">, and those well-educated people are more likely to <input type="text" id="s1_3"> <input type="text" id="s1_4">, earn a higher salary and <input type="text" id="s1_5"> more to our society.
+      </div>
+      <div class="translation">教育让人拥有知识和技能，那些接受了良好教育的人更有可能找到满意的工作，赚钱更多，对社会贡献更多。</div>
+      <button class="check-btn" onclick="checkSentence('s1', ['knowledge', 'skills', 'secure', 'decent employment', 'contribute'])">Check</button>
+      <div class="feedback" id="fb_s1"></div>
+    </div>
+
+    <!-- 句子 2 -->
+    <div class="question">
+      <div class="english">
+        2. In school, teachers <input type="text" id="s2_1"> students to work with their peers, <input type="text" id="s2_2"> other members of the class and be <input type="text" id="s2_3"> and <input type="text" id="s2_4">. Students also learn to <input type="text" id="s2_5"> sensibly in lessons and <input type="text" id="s2_6"> instructions given to them by teaching staff.
+      </div>
+      <div class="translation">在学校里，老师培养学生与同龄人合作，尊重他人，学会包容和分享。学生也学习如何在课堂上正确地表现和听从老师的指示。</div>
+      <button class="check-btn" onclick="checkSentence('s2', ['train', 'respect', 'tolerant', 'sharing', 'behave', 'follow'])">Check</button>
+      <div class="feedback" id="fb_s2"></div>
+    </div>
+
+    <!-- 句子 3 -->
+    <div class="question">
+      <div class="english">
+        3. A foreign language is indeed an <input type="text" id="s3_1"> tool for <input type="text" id="s3_2"> communication, and it <input type="text" id="s3_3"> a fresh new window to the world around you and far from you. One's ability in <input type="text" id="s3_4"> and <input type="text" id="s3_5"> thinking can be greatly <input type="text" id="s3_6"> when he or she is practicing math questions. Mathematics is the <input type="text" id="s3_7"> of a variety of social sciences, such as economics and finance.
+      </div>
+      <div class="translation">外语是国际交流的一个有效工具，同时它还打开一扇窗让我们去了解我们的眼前和远方。一个人在作数学练习时，逻辑与抽象思维能力都会被极大提升。数学是许多社会科学的基础，如经济和金融。</div>
+      <button class="check-btn" onclick="checkSentence('s3', ['efficient', 'international', 'opens', 'logical', 'abstract', 'developed', 'foundation'])">Check</button>
+      <div class="feedback" id="fb_s3"></div>
+    </div>
+
+    <div class="section-title">二. 教育类短语（中译英 + 雅思例句）</div>
+
+    <!-- 短语练习 -->
+    <div class="question">
+      <div class="english">1. 教育的好处：</div>
+      <input type="text" id="p1">
+      <button class="check-btn" onclick="checkPhrase('p1', 'benefits of education')">Check</button>
+      <div class="feedback" id="fb_p1"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">2. 家庭教育：</div>
+      <input type="text" id="p2">
+      <button class="check-btn" onclick="checkPhrase('p2', 'home-schooling or parental education')">Check</button>
+      <div class="feedback" id="fb_p2"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">3. 第一个老师：</div>
+      <input type="text" id="p3">
+      <button class="check-btn" onclick="checkPhrase('p3', 'first educator')">Check</button>
+      <div class="feedback" id="fb_p3"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">4. 在家教育孩子：</div>
+      <input type="text" id="p4">
+      <button class="check-btn" onclick="checkPhrase('p4', 'educate their children at home')">Check</button>
+      <div class="feedback" id="fb_p4"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">5. 好的榜样：</div>
+      <input type="text" id="p5">
+      <button class="check-btn" onclick="checkPhrase('p5', 'good role models')">Check</button>
+      <div class="feedback" id="fb_p5"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">6. 模仿行为：</div>
+      <input type="text" id="p6">
+      <button class="check-btn" onclick="checkPhrase('p6', 'copy behavior')">Check</button>
+      <div class="feedback" id="fb_p6"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">7. 家庭暴力：</div>
+      <input type="text" id="p7">
+      <button class="check-btn" onclick="checkPhrase('p7', 'domestic violence')">Check</button>
+      <div class="feedback" id="fb_p7"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">8. 增进家庭关系：</div>
+      <input type="text" id="p8">
+      <button class="check-btn" onclick="checkPhrase('p8', 'enhance family bond')">Check</button>
+      <div class="feedback" id="fb_p8"></div>
+    </div>
+  </div>
+
+  <script>
+    const examples = {
+      "p1": {
+        en: "The benefits of education are evident in both personal growth and national prosperity.",
+        zh: "教育的好处在个人成长和国家繁荣中都很明显。"
+      },
+      "p2": {
+        en: "Home-schooling or parental education allows more flexibility in learning.",
+        zh: "家庭教育可以让学习更加灵活。"
+      },
+      "p3": {
+        en: "Parents are often considered a child’s first educator.",
+        zh: "父母通常被认为是孩子的第一个老师。"
+      },
+      "p4": {
+        en: "Some parents choose to educate their children at home to protect them from negative influences.",
+        zh: "一些父母选择在家教育孩子以避免负面影响。"
+      },
+      "p5": {
+        en: "Teachers and parents should act as good role models for children.",
+        zh: "老师和父母应该成为孩子们的好榜样。"
+      },
+      "p6": {
+        en: "Children tend to copy behavior they observe in adults.",
+        zh: "孩子往往会模仿他们从大人那看到的行为。"
+      },
+      "p7": {
+        en: "Domestic violence has a long-lasting impact on children's mental health.",
+        zh: "家庭暴力对孩子的心理健康有长期影响。"
+      },
+      "p8": {
+        en: "Spending time together regularly can enhance the family bond.",
+        zh: "经常一起相处可以增进家庭关系。"
+      }
+    };
+
+    function checkSentence(id, answers) {
+      const feedback = document.getElementById("fb_" + id);
+      const inputs = answers.map((_, i) => document.getElementById(`${id}_${i + 1}`));
+      const values = inputs.map(input => input.value.trim().toLowerCase());
+      const correct = answers.every((ans, i) => values[i] === ans.toLowerCase());
+      feedback.innerHTML = correct
+        ? "<span class='correct'>✔ 正确！</span>"
+        : "<span class='incorrect'>✘ 错误</span> 正确答案：" + answers.join(" / ");
+    }
+
+    function checkPhrase(id, answer) {
+      const feedback = document.getElementById("fb_" + id);
+      const value = document.getElementById(id).value.trim().toLowerCase();
+      const correctAnswer = answer.toLowerCase();
+      const example = examples[id];
+
+      let html = "";
+      if (value === correctAnswer) {
+        html += `<span class='correct'>✔ 正确！</span>`;
+      } else {
+        html += `<span class='incorrect'>✘ 错误</span> 正确答案：${answer}`;
+      }
+
+      if (example) {
+        html += `<div class='example'>例句：${example.en}<br>翻译：${example.zh}</div>`;
+      }
+
+      feedback.innerHTML = html;
+    }
+  </script>
+</body>
+</html>
